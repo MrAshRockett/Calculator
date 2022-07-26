@@ -1,1 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
 
+@media only screen and (min-width: 340px) {
+
+  body {
+    background-color: paleturquoise
+  }
+
+  .container {
+    max-width: 90%;
+    background-color: seagreen;
+    margin: 10% auto 0 auto;
+    padding: 30px;
+    border-radius: 10px;
+  }
+
+  .screen {
+    width: 100%;
+    background-color: white;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  h2 {
+    font-size: 1.8em;
+    font-weight: 600;
+    text-align: right;
+    background-color: white;
+  }
+
+  .row::after {
+    clear: both;
+    content: '';
+    display: block;
+    background-color: seagreen
+  }
+
+  button {
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid seagreen;
+    background-color: antiquewhite;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background-color: white;
+    transition: 0.2s;
+  }
+
+  #plus {
+    float: right;
+    height: 98px;
+    position: relative;
+    top: -98px;
+  }
+
+  .special {
+    max-width: 75%;
+  }
+
+  .col {
+    float: left;
+  }
+
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+
+}
+
+@media only screen and (min-width: 600px) {
+  
+  .container {
+    max-width: 20%;
+  }
+
+
+}
