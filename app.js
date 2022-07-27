@@ -15,7 +15,7 @@ const screen = document.getElementById('numbers')
 
 let tempNo = ''
 let screenInput = []
-
+let result
 
 console.log(typeof(tempNo))
 
@@ -30,8 +30,6 @@ for(let i = 0; i < btns.length; i++) {
           // Number(tempNo += cell)
           tempNo = Number(tempNo) + cell
           screen.textContent = tempNo
-
-          // screenInput.push(tempNo)
           // console.log(screenInput)
           
           // screen()
@@ -39,6 +37,7 @@ for(let i = 0; i < btns.length; i++) {
           //2: appears on screen as 1234
           //3: 1234 grab to push
         }
+          // clear needs to not delete the last 0
         if (cell == 'CE'){
           tempNo = tempNo.slice(0, - 1);
           console.log(cell)
@@ -47,6 +46,22 @@ for(let i = 0; i < btns.length; i++) {
 
         if (cell == 'AC'){
           reset()
+        }
+
+        if (cell == '=') {
+          let operator = screenInput[1]
+          let firstNun = screenInput[0]
+          let secondNun = screenInput[2]
+        }
+
+        else if (operator == '-') {
+          result = number1 - number2;
+        }
+        else if (operator == '*') {
+            result = number1 * number2;
+        }
+        else {
+            result = number1 / number2;
         }
 
 
@@ -59,18 +74,21 @@ for(let i = 0; i < btns.length; i++) {
       screenInput = []
       screen.textContent = '0'
     }
-    if (operator == '+') {
-        result = number1 + number2;
-    }
-    else if (operator == '-') {
-        result = number1 - number2;
-    }
-    else if (operator == '*') {
-        result = number1 * number2;
-    }
-    else {
-        result = number1 / number2;
-    }
+
+    // logically get input 
+    // input needs to be stored
+    // operator needs to be triggered
+    // second input needs to be made and stored
+    // equals function needs to calculate all the above together
+
+    // if (operator == '+') {
+    //     screenInput.push(tempNo)
+    //     result = number1 + number2;
+    // }
+    // if(operator == '='){
+     
+    // }
+    
 
 
 //array for pushing inputs into before calling function to calc operator
