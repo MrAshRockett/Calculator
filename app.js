@@ -1,3 +1,6 @@
+//TO DO LIST 
+
+
 const btns = document.getElementsByTagName('button') //this already turns it into an array 
 console.log(btns)
 
@@ -21,10 +24,13 @@ for(let i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', function(e) {
         let cell = e.target.textContent
         console.log(cell)
-        
-        if (!isNaN(cell)) {
-          Number(tempNo += cell)
+
+        if (tempNo.length <= 14){
+        if (!isNaN(cell) || cell === '.') {
+          // Number(tempNo += cell)
+          tempNo = Number(tempNo) + cell
           screen.textContent = tempNo
+
           // screenInput.push(tempNo)
           // console.log(screenInput)
           
@@ -33,9 +39,39 @@ for(let i = 0; i < btns.length; i++) {
           //2: appears on screen as 1234
           //3: 1234 grab to push
         }
-        
+        if (cell == 'CE'){
+          tempNo = tempNo.slice(0, - 1);
+          console.log(cell)
+          screen.textContent = tempNo
+        }
+
+        if (cell == 'AC'){
+          reset()
+        }
+
+
+      }
         
     })}
+
+    function reset() {
+      tempNo = ''
+      screenInput = []
+      screen.textContent = '0'
+    }
+    if (operator == '+') {
+        result = number1 + number2;
+    }
+    else if (operator == '-') {
+        result = number1 - number2;
+    }
+    else if (operator == '*') {
+        result = number1 * number2;
+    }
+    else {
+        result = number1 / number2;
+    }
+
 
 //array for pushing inputs into before calling function to calc operator
     // inputArr = []
@@ -47,7 +83,7 @@ for(let i = 0; i < btns.length; i++) {
     
     //function call the relevant operator function 
     // inputArr[i]+=i
-
+    
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   // take the operator input
@@ -60,18 +96,8 @@ for(let i = 0; i < btns.length; i++) {
   // let result;
 
   // // using if...else if... else
-  // if (operator == '+') {
-  //     result = number1 + number2;
-  // }
-  // else if (operator == '-') {
-  //     result = number1 - number2;
-  // }
-  // else if (operator == '*') {
-  //     result = number1 * number2;
-  // }
-  // else {
-  //     result = number1 / number2;
-  // }
+
+  
 
 
 
