@@ -1,4 +1,9 @@
 //TO DO LIST 
+// - - - - - - - - - - - - - 
+// Get operator function working
+// Make sure clear doesn't delete remaining Zero
+// Decimal point gets overwritten
+// YA DONE (>._.)>~<(._.<)
 
 
 const btns = document.getElementsByTagName('button') //this already turns it into an array 
@@ -63,8 +68,6 @@ for(let i = 0; i < btns.length; i++) {
         else {
             result = number1 / number2;
         }
-
-
       }
         
     })}
