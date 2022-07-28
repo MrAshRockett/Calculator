@@ -20,7 +20,8 @@ const screen = document.getElementById('numbers')
 
 let tempNo = ''
 let screenInput = []
-let result
+let firstNun = Number(screenInput[0])//index 0
+let operator, secondNun, result
 
 console.log(typeof(tempNo))
 
@@ -36,11 +37,15 @@ for(let i = 0; i < btns.length; i++) {
           tempNo = Number(tempNo) + cell
           screen.textContent = tempNo
           // console.log(screenInput)
-          
+               // newNum = Number(entries[i + 1])
+          // symbol = entries[i]
           // screen()
           // 1: get input 1, 2, 3, 4,
           //2: appears on screen as 1234
-          //3: 1234 grab to push
+          //3:  for (let i = 1; i < entries.length; i++) {
+          // newNum = Number(entries[i + 1])
+          // symbol = entries[i]
+          // 1234 grab to push
         }
           // clear needs to not delete the last 0
         if (cell == 'CE'){
@@ -53,23 +58,80 @@ for(let i = 0; i < btns.length; i++) {
           reset()
         }
 
-        if (cell == '=') {
-          let operator = screenInput[1]
-          let firstNun = screenInput[0]
-          let secondNun = screenInput[2]
-        }
+        switch (cell) {
+          case 'x':
+            screenInput.push(tempNo)
+            screenInput.push('x')
+            tempNo = ''
+            break
+          case '+':
+            screenInput.push(tempNo)
+            screenInput.push('+')
+            tempNo = ''
 
-        else if (operator == '-') {
-          result = number1 - number2;
+            break
+          case '-':
+            screenInput.push(tempNo)
+            screenInput.push('-')
+            tempNo = ''
+
+            break
+          case '÷':
+            screenInput.push(tempNo)
+            screenInput.push('÷')
+            tempNo = ''
+
+            break
+          case '%':
+            screenInput.push(tempNo)
+            screenInput.push('%')
+            tempNo = ''
+
+            break
         }
-        else if (operator == '*') {
-            result = number1 * number2;
-        }
-        else {
-            result = number1 / number2;
-        }
-      }
         
+        if (cell === '=') {
+         
+          
+          screenInput.push(tempNo)
+
+          for(i = 1; i < screenInput.length; i++) {
+            secondNun = Number(screenInput[i + 1])
+            operator = screenInput[i]
+          } 
+          console.log(typeof firstNun, secondNun)
+
+          
+
+          switch (operator) {
+            case 'x':
+              result = firstNun*secondNun
+              screen.textContent = result
+              break
+            case '+':
+              result = firstNun+secondNun
+              screen.textContent = result
+              break
+            case '-':
+              result = firstNun-secondNun
+              screen.textContent = result
+              break
+            case '÷':
+              result = firstNun/secondNun
+              screen.textContent = result
+              break
+            case '%':
+              result = (firstNun/secondNun)*100
+              screen.textContent = result
+              break
+          }
+        
+          
+          //for each for refactoring          // const inputShit = ["apple", "orange", "cherry"];
+          // inputShit.forEach(myFunction);
+        
+      }
+    }  
     })}
 
     function reset() {
@@ -78,19 +140,7 @@ for(let i = 0; i < btns.length; i++) {
       screen.textContent = '0'
     }
 
-    // logically get input 
-    // input needs to be stored
-    // operator needs to be triggered
-    // second input needs to be made and stored
-    // equals function needs to calculate all the above together
-
-    // if (operator == '+') {
-    //     screenInput.push(tempNo)
-    //     result = number1 + number2;
-    // }
-    // if(operator == '='){
-     
-    // }
+  
     
 
 
