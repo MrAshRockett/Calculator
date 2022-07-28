@@ -20,7 +20,7 @@ const screen = document.getElementById('numbers')
 
 let tempNo = ''
 let screenInput = []
-let firstNun = Number(screenInput[0])//index 0
+//index 0
 let operator, secondNun, result
 
 console.log(typeof(tempNo))
@@ -29,12 +29,17 @@ console.log(typeof(tempNo))
 for(let i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', function(e) {
         let cell = e.target.textContent
+        // ----------------------------------------------------------------------------------------------
+
+        // The firstNun variable was placed outside the for loop and doesn't have the the value of 
+        // screenInput yet so thats why it was returning NaN.
+        let firstNun = Number(screenInput[0])
         console.log(cell)
 
         if (tempNo.length <= 14){
         if (!isNaN(cell) || cell === '.') {
           // Number(tempNo += cell)
-          tempNo = Number(tempNo) + cell
+          tempNo = tempNo + cell
           screen.textContent = tempNo
           // console.log(screenInput)
                // newNum = Number(entries[i + 1])
@@ -94,12 +99,16 @@ for(let i = 0; i < btns.length; i++) {
          
           
           screenInput.push(tempNo)
-
-          for(i = 1; i < screenInput.length; i++) {
+        // ----------------------------------------------------------------------------------------------
+          // The for loop here didn't have i declared. "let" was missing.
+          for(let i = 1; i < screenInput.length; i++) {
             secondNun = Number(screenInput[i + 1])
             operator = screenInput[i]
-          } 
-          console.log(typeof firstNun, secondNun)
+         
+                    // ----------------------------------------------------------------------------------------------
+          // I console logged all these below to find out what was giving NaN and what was passsing through
+        
+            console.log("operator: " + operator + "firstNun: " +  firstNun + "secondNun: " + secondNun)
 
           
 
@@ -125,7 +134,7 @@ for(let i = 0; i < btns.length; i++) {
               screen.textContent = result
               break
           }
-        
+        } 
           
           //for each for refactoring          // const inputShit = ["apple", "orange", "cherry"];
           // inputShit.forEach(myFunction);
